@@ -62,7 +62,7 @@ export default function CreateOrphanage() {
     data.append('latitude', String(latitude));
     data.append('longitude', String(longitude));
     data.append('instructions', instructions);
-    data.append('opening_hous', opening_hours);
+    data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
 
     images.forEach(image => {
@@ -86,7 +86,7 @@ export default function CreateOrphanage() {
             <legend>Dados</legend>
 
             <Map
-              center={[-27.2092052, -49.6401092]}
+              center={[-18.5807986, -46.520825]}
               style={{ width: '100%', height: 280 }}
               zoom={15}
               onclick={handleMapClick}

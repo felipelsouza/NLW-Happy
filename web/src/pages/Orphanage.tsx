@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 import api from "../services/api";
 
-import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 import mapIcon from "../utils/mapIcon";
 
