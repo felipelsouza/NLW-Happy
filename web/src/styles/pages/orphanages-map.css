@@ -43,6 +43,14 @@
     z-index: 5;
 }
 
+#page-map .switch-map-mode {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+
+    z-index: 10;
+}
+
 #page-map .create-orphanage {
     position: absolute;
     right: 40px;
