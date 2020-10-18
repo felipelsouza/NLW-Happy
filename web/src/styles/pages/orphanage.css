@@ -135,16 +135,18 @@
 }
 
 .orphanage-details .orphanage-details-content .open-details div.open-on-weekends {
+  background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+  border: 1px solid #C4F1DB;
+  color: #37C77F;                                    
+}
+
+.orphanage-details .orphanage-details-content .open-details div.open-on-weekends.dont-open {
   background: linear-gradient(154.16deg, #FDF0F5 7.85%, #FFFFFF 91.03%);
   border: 1px solid #FFBCD4;
   color: #FF669D;
 }
 
-.orphanage-details .orphanage-details-content .open-details div.open-on-weekends.dont-open {
-
-}
-
-.orphanage-details .orphanage-details-content button.contact-button {
+.orphanage-details .orphanage-details-content a.contact-button {
   margin-top: 64px;
 
   width: 100%;
@@ -155,6 +157,7 @@
   border-radius: 20px;
   color: #FFFFFF;
   font-weight: 800;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;
@@ -163,10 +166,10 @@
   transition: background-color 0.2s;
 }
 
-.orphanage-details .orphanage-details-content button.contact-button svg {
+.orphanage-details .orphanage-details-content a.contact-button svg {
   margin-right: 16px;
 }
 
-.orphanage-details .orphanage-details-content button.contact-button:hover {
+.orphanage-details .orphanage-details-content a.contact-button:hover {
   background: #36CF82;
 }

@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
+import MaskedInput from 'react-text-mask';
 
 import api from "../services/api";
 
@@ -22,6 +23,7 @@ export default function CreateOrphanage() {
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
+  const [phone_number, setPhoneNumber] = useState('');
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
 
@@ -52,6 +54,7 @@ export default function CreateOrphanage() {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    console.log(phone_number)
 
     const { latitude, longitude } = position;
 
@@ -64,6 +67,7 @@ export default function CreateOrphanage() {
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
+    data.append('phone_number', phone_number);
 
     images.forEach(image => {
       data.append('images', image);
@@ -125,6 +129,17 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
+              <label htmlFor="phone_number">WhatsApp</label>
+              <MaskedInput 
+                mask={['(', /[1-9]/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/ ]}
+                id="phone_number" 
+                name="phone"
+                value={phone_number}
+                onChange={event => setPhoneNumber(event.target.value)}
+              />
+            </div>
+            
+            <div className="input-block">
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
@@ -183,6 +198,7 @@ export default function CreateOrphanage() {
                 </button>
               </div>
             </div>
+
           </fieldset>
 
           <button className="confirm-button" type="submit">

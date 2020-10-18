@@ -9,6 +9,7 @@ import {
   TouchableOpacity, 
   Image
 } from 'react-native';
+import { TextInputMask } from 'react-native-masked-text';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
@@ -32,6 +33,7 @@ export default function OrphanageData() {
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
+  const [phone_number, setPhoneNumber] = useState('');
   const [images, setImages] = useState<string[]>([]);
 
   const navigation = useNavigation();
@@ -48,6 +50,7 @@ export default function OrphanageData() {
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
+    data.append('phone_number', phone_number);
 
     images.forEach((image, index) => {
       data.append('images', {
@@ -104,10 +107,13 @@ export default function OrphanageData() {
         onChangeText={setAbout}
       />
 
-      {/* <Text style={styles.label}>Whatsapp</Text>
-      <TextInput
+      <Text style={styles.label}>Whatsapp</Text>
+      <TextInputMask 
+        type={'cel-phone'}
         style={styles.input}
-      /> */}
+        value={phone_number}
+        onChangeText={setPhoneNumber}
+      />
 
       <Text style={styles.label}>Fotos</Text>
 
