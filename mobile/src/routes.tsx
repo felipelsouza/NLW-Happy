@@ -12,11 +12,16 @@ import OrphanageDetails from './pages/OrphanageDetails';
 
 import SelectMapPosition from './pages/CreateOrphanages/SelectMapPosition';
 import OrphanageData from './pages/CreateOrphanages/OrphanageData';
+import OnboardingSwiper from './components/OnboardSwiper';
 
 export default function Routes() {
     return (
         <NavigationContainer>
             <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#F2F3F5' } }}>
+                <Screen 
+                    name="OnboardingSwiper"
+                    component={OnboardingSwiper}
+                />
                 <Screen 
                     name="OrphanagesMap" 
                     component={OrphanagesMap} 
